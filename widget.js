@@ -2,7 +2,6 @@ window.addEventListener("DOMContentLoaded", function () {
     if (window.__supportWidgetLoaded) return;
     window.__supportWidgetLoaded = true;
 
-    // Cherche le script <script src="...widget.js"> pour lire l'attribut data-support-url
     const scriptTag = document.currentScript || Array.from(document.getElementsByTagName("script"))
         .find(s => s.src && s.src.includes("widget.js"));
 
@@ -123,4 +122,4 @@ window.addEventListener("DOMContentLoaded", function () {
     document.getElementById("close-support").addEventListener("click", function () {
         document.getElementById("support-popup").style.display = "none";
     });
-})();
+});
