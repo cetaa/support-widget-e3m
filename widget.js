@@ -1,9 +1,9 @@
-(function () {
+window.addEventListener("DOMContentLoaded", function () {
     if (window.__supportWidgetLoaded) return;
     window.__supportWidgetLoaded = true;
 
     // Cherche le script <script src="...widget.js"> pour lire l'attribut data-support-url
-    const scriptTag = Array.from(document.getElementsByTagName("script"))
+    const scriptTag = document.currentScript || Array.from(document.getElementsByTagName("script"))
         .find(s => s.src && s.src.includes("widget.js"));
 
     const supportFormURL = scriptTag?.getAttribute("data-support-url");
