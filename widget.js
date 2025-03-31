@@ -2,8 +2,16 @@
     if (window.__supportWidgetLoaded) return;
     window.__supportWidgetLoaded = true;
 
-    const scriptTag = document.currentScript;
-    const supportFormURL = scriptTag.getAttribute("data-support-url");
+    // Cherche le script <script src="...widget.js"> pour lire l'attribut data-support-url
+    const scriptTag = Array.from(document.getElementsByTagName("script"))
+        .find(s => s.src && s.src.includes("widget.js"));
+
+    const supportFormURL = scriptTag?.getAttribute("data-support-url");
+
+    if (!supportFormURL) {
+        console.error("[Support Widget] ❌ L'attribut 'data-support-url' est requis.");
+        return;
+    }
 
     const style = document.createElement("style");
     style.textContent = `
