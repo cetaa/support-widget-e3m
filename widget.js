@@ -3,7 +3,7 @@
     window.__supportWidgetLoaded = true;
 
     const scriptTag = document.currentScript;
-    const supportFormURL = scriptTag.getAttribute("data-support-url") || "https://example.com";
+    const supportFormURL = scriptTag.getAttribute("data-support-url");
 
     const style = document.createElement("style");
     style.textContent = `
